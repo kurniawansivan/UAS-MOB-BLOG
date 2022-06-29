@@ -1,0 +1,124 @@
+import React, {Component} from 'react';
+import {Text, View, ScrollView} from 'react-native';
+import styled from 'styled-components/native';
+
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+
+import {Screen} from '..';
+
+const Tab = createMaterialTopTabNavigator();
+
+const TabBarIndicator = styled(View)`
+  border: 1px solid black;
+`;
+
+export default class PostFeed extends Component {
+  Latest() {
+    return (
+      <Screen style={{backgroundColor: 'red', zIndex: 10}}>
+        <View style={{height: 50, backgroundColor: 'blue'}}>
+          <Text>Test</Text>
+        </View>
+        <View style={{height: 50, backgroundColor: 'blue'}}>
+          <Text>Test</Text>
+        </View>
+        <View style={{height: 50, backgroundColor: 'blue'}}>
+          <Text>Test</Text>
+        </View>
+        <View style={{height: 50, backgroundColor: 'blue'}}>
+          <Text>Test</Text>
+        </View>
+        <View style={{height: 50, backgroundColor: 'blue'}}>
+          <Text>Test</Text>
+        </View>
+        <View style={{height: 50, backgroundColor: 'blue'}}>
+          <Text>Test</Text>
+        </View>
+        <View style={{height: 50, backgroundColor: 'blue'}}>
+          <Text>Test</Text>
+        </View>
+        <View style={{height: 50, backgroundColor: 'blue'}}>
+          <Text>Test</Text>
+        </View>
+        <View style={{height: 50, backgroundColor: 'blue'}}>
+          <Text>Test</Text>
+        </View>
+        <View style={{height: 50, backgroundColor: 'blue'}}>
+          <Text>Test</Text>
+        </View>
+        <View style={{height: 50, backgroundColor: 'blue'}}>
+          <Text>Test</Text>
+        </View>
+        <View style={{height: 50, backgroundColor: 'blue'}}>
+          <Text>Test</Text>
+        </View>
+        <View style={{height: 50, backgroundColor: 'blue'}}>
+          <Text>Test</Text>
+        </View>
+      </Screen>
+    );
+  }
+
+  Design() {
+    return (
+      <Screen
+        style={{
+          paddingRight: 0,
+          margin: 0,
+          backgroundColor: 'blue',
+          position: 'absolute',
+        }}>
+        <ScrollView>
+          <View style={{height: 100}}>
+            <Text>Design</Text>
+          </View>
+          <View style={{height: 100}}>
+            <Text>Design</Text>
+          </View>
+          <View style={{height: 100}}>
+            <Text>Design</Text>
+          </View>
+          <View style={{height: 100}}>
+            <Text>Design</Text>
+          </View>
+          <View style={{height: 100}}>
+            <Text>Design</Text>
+          </View>
+          <View style={{height: 100}}>
+            <Text>Design</Text>
+          </View>
+        </ScrollView>
+      </Screen>
+    );
+  }
+
+  render() {
+    return (
+      <Tab.Navigator
+        style={{zIndex: 0}}
+        initialRouteName="Latest"
+        screenOptions={{
+          swipeEnabled: true,
+          tabBarIndicatorContainerStyle: {borderColor: 'red'},
+          tabBarActiveTintColor: 'black',
+          tabBarInactiveTintColor: '#b3b3b3',
+          tabBarLabelStyle: {fontWeight: 'bold'},
+          tabBarIndicator: () => {
+            return <TabBarIndicator style={{borderColor: '#d6d6d6'}} />;
+          },
+          tabBarItemStyle: {
+            width: 'auto',
+            marginRight: 15,
+            padding: 0,
+          },
+          tabBarScrollEnabled: true,
+        }}
+        showPageIndicator={true}>
+        <Tab.Screen name="Latest" component={this.Latest} />
+        <Tab.Screen name="Design" component={this.Design} />
+        <Tab.Screen name="Development" component={this.Latest} />
+        <Tab.Screen name="Management" component={this.Latest} />
+      </Tab.Navigator>
+    );
+  }
+}
